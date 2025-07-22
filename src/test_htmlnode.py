@@ -1,6 +1,7 @@
 import unittest
 
 from htmlnode import *
+from functs_file import *
 
 class TestHTMLNode(unittest.TestCase):
 	def test_eq(self):

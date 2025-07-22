@@ -9,6 +9,8 @@ class TextType(Enum):
 	LINK = "link"
 	IMAGE = "image"
 
+BlockType = Enum("BlockType",["paragraph","heading","code","quote","unordered_list","ordered_list"])
+
 class TextNode:
 
 	def __init__(self, text ,text_type ,url = None):
@@ -25,18 +27,3 @@ class TextNode:
 
 	def __repr__(self):
 		return f"TextNode({self.text}, {self.text_type}, {self.url})"
-
-def text_node_to_html_node(self):
-	match self.text_type:
-		case TextType.TEXT:
-			return LeafNode(tag=None, value = self.text)
-		case TextType.BOLD:
-			return LeafNode(tag="b", value = self.text)
-		case TextType.ITALIC:
-			return LeafNode(tag="i", value = self.text)
-		case TextType.LINK:
-			return LeafNode(tag="a", value = self.text, props = "href")
-		case TextType.IMAGE:
-			return LeafNode(tag="img", value = "", props = ["src", "alt"])
-		case _:
-			raise Exception("text_type not defined")
